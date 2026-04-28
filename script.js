@@ -1,6 +1,11 @@
-function updateCounter(){
-    const total = document.querySelectorAll("#taskList li").length;
-    const completed = document.querySelectorAll(".completed").length;
+const clearCompletedBtn = document.querySelector("#clearCompletedBtn")
 
-    taskCounter.textContent = `${completed} de ${total} tarefas concluídas`;
-}
+clearCompletedBtn.addEventListener("click", function(){
+    const completedTasks = document.querySelectorAll(".completed");
+
+    completedTasks.forEach(task => {
+        task.remove();
+    });
+
+    updateCounter();
+})
